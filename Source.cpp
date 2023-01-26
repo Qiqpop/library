@@ -6,13 +6,6 @@
 #include <windows.h>
 #include <stdlib.h>
 
-//Описать класс «домашняя библиотека».
-//Предусмотреть возможность работы с произвольным числом книг, поиска
-//книги по какому - либо признаку(например, по автору или по году издания), добавления книг в библиотеку,
-//удаления книг из нее, сортировки книг по разным полям.
-//Написать программу, демонстрирующую работу с этим классом.
-//Программа должна содержать меню, позволяющее осуществить проверку всех методов класса.
-
 using namespace std;
 
 class book
@@ -27,9 +20,9 @@ public:
 	void setYear(int year) { this->year = year; }
 	void printBook() { cout << title << ' ' << autor << ' ' << year << endl; }
 private:
-	string title;	//Название книги
-	string autor;	//Автор книги
-	int year;		//Год выпуска
+	string title;	//РќР°Р·РІР°РЅРёРµ РєРЅРёРіРё
+	string autor;	//РђРІС‚РѕСЂ РєРЅРёРіРё
+	int year;		//Р“РѕРґ РІС‹РїСѓСЃРєР°
 };
 
 book::book(string title, string autor, int year) {
@@ -38,15 +31,15 @@ book::book(string title, string autor, int year) {
 	this->year = year;
 }
 
-//Компараторы для сортировки по году
+//РљРѕРјРїР°СЂР°С‚РѕСЂС‹ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕ РіРѕРґСѓ
 bool comYear(book a, book b) {
 	return a.getYear() < b.getYear();
 }
-//Компараторы для сортировки по названию
+//РљРѕРјРїР°СЂР°С‚РѕСЂС‹ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕ РЅР°Р·РІР°РЅРёСЋ
 bool comTitle(book a, book b) {
 	return a.getTitle() < b.getTitle();
 }
-//Компараторы для сортировки по автору
+//РљРѕРјРїР°СЂР°С‚РѕСЂС‹ РґР»СЏ СЃРѕСЂС‚РёСЂРѕРІРєРё РїРѕ Р°РІС‚РѕСЂСѓ
 bool comAutor(book a, book b) {
 	return a.getAutor() < b.getAutor();
 }
@@ -95,7 +88,7 @@ void library::findYear(int year) {
 			 data[i].printBook();
 		}
 	}
-	cout << "Книга не найдена" << endl;
+	cout << "РљРЅРёРіР° РЅРµ РЅР°Р№РґРµРЅР°" << endl;
 }
 void library::findTitle(string title) {
 	for (int i = 0; i < data.size(); i++) {
@@ -104,7 +97,7 @@ void library::findTitle(string title) {
 			data[i].printBook();
 		}
 	}
-	cout << "Книга не найдена" << endl;
+	cout << "РљРЅРёРіР° РЅРµ РЅР°Р№РґРµРЅР°" << endl;
 }
 void library::findAutor(string autor) {
 	for (int i = 0; i < data.size(); i++) {
@@ -113,7 +106,7 @@ void library::findAutor(string autor) {
 			data[i].printBook();
 		}
 	}
-	cout << "Книга не найдена" << endl;
+	cout << "РљРЅРёРіР° РЅРµ РЅР°Р№РґРµРЅР°" << endl;
 }
 
 class menu
@@ -130,20 +123,20 @@ void menu::printMenu() {
 	system("cls");
 	SetConsoleCP(1251);
 	SetConsoleOutputCP(1251);
-	cout << "Домашняя библиотека" << endl;
-	cout << "Введите номер команды, которую вы хотите сделать:" << endl;
-	cout << "1-Вывести всю библиотеку" << endl;
-	cout << "2-Добавить книгу" << endl;
-	cout << "3-Удалить книгу под номером" << endl;
-	cout << "4-Отсортировать библиотеку" << endl;
-	cout << "5-Найти книгу" << endl;
-	cout << "6-Закрыть библиотеку" << endl;
+	cout << "Р”РѕРјР°С€РЅСЏСЏ Р±РёР±Р»РёРѕС‚РµРєР°" << endl;
+	cout << "Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РєРѕРјР°РЅРґС‹, РєРѕС‚РѕСЂСѓСЋ РІС‹ С…РѕС‚РёС‚Рµ СЃРґРµР»Р°С‚СЊ:" << endl;
+	cout << "1-Р’С‹РІРµСЃС‚Рё РІСЃСЋ Р±РёР±Р»РёРѕС‚РµРєСѓ" << endl;
+	cout << "2-Р”РѕР±Р°РІРёС‚СЊ РєРЅРёРіСѓ" << endl;
+	cout << "3-РЈРґР°Р»РёС‚СЊ РєРЅРёРіСѓ РїРѕРґ РЅРѕРјРµСЂРѕРј" << endl;
+	cout << "4-РћС‚СЃРѕСЂС‚РёСЂРѕРІР°С‚СЊ Р±РёР±Р»РёРѕС‚РµРєСѓ" << endl;
+	cout << "5-РќР°Р№С‚Рё РєРЅРёРіСѓ" << endl;
+	cout << "6-Р—Р°РєСЂС‹С‚СЊ Р±РёР±Р»РёРѕС‚РµРєСѓ" << endl;
 	cin >> comand;
 	switch (comand)
 	{
 	case 1: { LB.printLibrary(); system("pause"); break; }
 	case 2: { 
-		cout << "Введите книгу в формате(ВМЕСТО \"ПРОБЕЛ\" ИСПОЛЬЗОВАТЬ \"_\")\nНАЗВАНИЕ\tАВТОР\tГОД ВЫПУСКА" << endl;
+		cout << "Р’РІРµРґРёС‚Рµ РєРЅРёРіСѓ РІ С„РѕСЂРјР°С‚Рµ(Р’РњР•РЎРўРћ \"РџР РћР‘Р•Р›\" РРЎРџРћР›Р¬Р—РћР’РђРўР¬ \"_\")\nРќРђР—Р’РђРќРР•\tРђР’РўРћР \tР“РћР” Р’Р«РџРЈРЎРљРђ" << endl;
 		string title, autor;
 		int year;
 		cin >> title >> autor >> year;
@@ -153,10 +146,10 @@ void menu::printMenu() {
 	}
 	case 3: {int number; cin >> number; LB.delBook(number); break; }
 	case 4: {
-		cout << "Сортировать по" << endl;
-		cout << "1-Названию" << endl;
-		cout << "2-Автору" << endl;
-		cout << "3-Году выпуска" << endl;
+		cout << "РЎРѕСЂС‚РёСЂРѕРІР°С‚СЊ РїРѕ" << endl;
+		cout << "1-РќР°Р·РІР°РЅРёСЋ" << endl;
+		cout << "2-РђРІС‚РѕСЂСѓ" << endl;
+		cout << "3-Р“РѕРґСѓ РІС‹РїСѓСЃРєР°" << endl;
 		cin >> comand;
 		switch (comand)
 		{
@@ -164,16 +157,16 @@ void menu::printMenu() {
 		case 2: {LB.sortAutor(); break; }
 		case 3: {LB.sortYear(); break; }
 		default:
-			cout << "Команда не найдена" << endl;
+			cout << "РљРѕРјР°РЅРґР° РЅРµ РЅР°Р№РґРµРЅР°" << endl;
 			break;
 		}
 		break;
 	}
 	case 5: {
-		cout << "Искать по" << endl;
-		cout << "1-Названию" << endl;
-		cout << "2-Автору" << endl;
-		cout << "3-Году выпуска" << endl;
+		cout << "РСЃРєР°С‚СЊ РїРѕ" << endl;
+		cout << "1-РќР°Р·РІР°РЅРёСЋ" << endl;
+		cout << "2-РђРІС‚РѕСЂСѓ" << endl;
+		cout << "3-Р“РѕРґСѓ РІС‹РїСѓСЃРєР°" << endl;
 		cin >> comand;
 		switch (comand)
 		{
@@ -199,15 +192,15 @@ void menu::printMenu() {
 			break;
 		}
 		default:
-			cout << "Команда не найдена" << endl;
+			cout << "РљРѕРјР°РЅРґР° РЅРµ РЅР°Р№РґРµРЅР°" << endl;
 			system("pause");
 			break;
 		}
 		break;
 	}
-	case 6: {cout << "До свидания" << endl; system("pause"); exit(0); break; }
+	case 6: {cout << "Р”Рѕ СЃРІРёРґР°РЅРёСЏ" << endl; system("pause"); exit(0); break; }
 	default:
-		cout << "Команда не найдена" << endl;
+		cout << "РљРѕРјР°РЅРґР° РЅРµ РЅР°Р№РґРµРЅР°" << endl;
 		break;
 	}
 };
@@ -220,4 +213,3 @@ int main() {
 
 	return 0;
 }
-
